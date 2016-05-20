@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Perl, Catmandu, ETL, data, toolkit, CSV, csvconf" />
+    <meta name="description" content="Catmandu - a data toolkit" />
+    <title>Catmandu - a data toolkit</title>
+    <script src="./js/remark.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      @font-face {
+        font-family: 'Droid Serif';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Droid Serif'), url(./fonts/Droid_Serif.woff) format('woff');
+      }
+      @font-face {
+        font-family: 'Yanone Kaffeesatz';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Yanone Kaffeesatz'), url(./fonts/Yanone_Kaffeesatz.woff) format('woff');
+      }
+      @font-face {
+        font-family: 'Ubuntu Mono';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Ubuntu Mono'), url(./fonts/Ubuntu_Mono.woff2) format('woff2');
+      }
+      body {
+        font-family: 'Droid Serif';
+        font-size: 20px;
+        color: #777872;
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      h1 { font-size: 4em; color: #272822; }
+      h2 { font-size: 3em; color: #272822; }
+      h3 { font-size: 1.75em; color: #777872; }
+      small { font-size: 0.5em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      img {
+      max-width: 800px;
+      max-height: 600px;
+      }
+      code {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        /*text-shadow: 0 0 20px #333;*/
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center middle
+![LibreCat](./img/librecat.png "Logo LibreCat")
+# LibreCat
+### Transforming an Institutional Repository
+
+#### ELAG Conference 7-9 June 2016 in Copenhagen, Denmark
+##### Vitali Peil
+
+---
+class: middle center
+## Agenda
+
+  * Technology Stack
+  * Data
+  * (Web)Interface
+  * Users
+
+---
+class: middle center
+## Structure
+  * EXIT
+  * TRANSITION
+  * ENTRY
+
+---
+class: middle
+## Technology Stack
+### EXIT
+  * MySQL, custom template engine, Perl Modules
+  * ElasticSearch as Add-on (more wasn't possible)
+  * many add-ons, modules, extensions, changes (confusing architecture, slow technology)
+  * Software constructed for one specific use-case
+  * complicated and time-consuming to add new features and fix bugs
+  * un-sharable system
+
+---
+class: middle
+## Technology Stack
+### TRANSITION
+  * Decisions: which technology?
+    * use stuff you know
+  * still problems left to figure out
+    * balancing act: do it right OR do it quick?
+  * still, it took almost one year of development
+
+---
+class: middle
+## Technology Stack
+### ENTER
+
+  * Catmandu-based system:
+    * modular structure
+    * configurable and extensible
+    * re-usable
+  * Catmandu layer with the same commands/functions, backend systems are exchangeable
+  * open source
+
+  * we use: MySQL (primary store), ElasticSearch (index store), Perl Dancer (frontend), Template Toolkit and Twitter Bootstrap (views),
+  * and for all data, going in or out: Catmandu!
+
+---
+class: middle
+## Interlude: Catmandu (Slide by Johann Rolschewski)
+
+... created in 2012 as an open collaboration ("LibreCat") of the three university libraries of **Bielefeld**, **Gent** and **Lund**
+
+... built up an international community with a dozen active submitters
+
+... used by university libraries, archives and commercial implementers
+
+---
+class: middle
+## Data
+### EXIT
+
+  * confusing data due to legacy database(structure)
+  * lots of garbage had accumulated in the db (because last time we did it quick, NOT right)
+  * superfluous fields (see above: legacy db) and relations
+  *
+
+---
+class: middle
+## Data
+### TRANSITION
+
+  * Transforming Data with the help of Catmandu
+    * technically easy, contentwise very complicated
+    * __create__, __rename__, __restructure__, __delete__ fields
+    * clean up data within
+  * Different structure of file store
+    * find safe way to migrate files
+  * Surprise:
+    * To this day we keep finding data in fields that we didn't even know existed in the old db...
+
+---
+class: middle
+## Data (2)
+Transforming data feels a bit like building this...
+.center[![XKCD](./img/xkcd_universal_converter_box.png "xkcd.com/1406/")]
+.center[<small>\[[CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)\]</small>]
+
+---
+class: middle
+## Data
+### ENTRY
+
+  * MySQL primary store - storing only json blobs
+    * Bags (tables) for each type of record
+    * simple structure, easy to maintain
+  * ElasticSearch search store
+    * same structure as primary store, but analyzed
+    * now for all data (public and login area), quick access
+  * Files in the Linux file system
+
+  * Easy access to all data with the help of Catmandu (command line tools and Perl functions)
+
+---
+class: middle
+## (Web)Interface
+### EXIT
+
+  * old design (web framework)
+  * not responsive
+  * quite ugly
+  * custom template engine
+  * complicated handling, maintenance, bug fixing
+
+---
+class: middle
+## (Web)Interface
+### TRANSITION
+
+  * How (on earth) do you design an "intuitive" webform/webinterface???
+
+  * Template Toolkit and Twitter Bootstrap make your life easier (but not too easy)
+  * creating oai and sru was quite easy thanks to Catmandu modules
+  * problem: compatibility with old interfaces (that we thought were no longer in use)
+
+---
+class: middle
+## (Web)Interface
+### ENTRY
+
+  * configurable system
+    * views, roles, rights, interfaces (oai, sru), language (almost)
+  * responsive design
+  * html5 with many helpers
+
+---
+class: middle
+## Users
+### EXIT
+
+  * Slow and ugly system
+  * complicated useage
+
+  * BUT: it was a system they were used to!
+
+---
+class: middle
+## Users
+### TRANSITION
+
+  * __None!__ We just switched and confronted the users with the new system.
+
+  * Tried to take all data with us, especially user-specific data
+  * No problem to add missing data later, even while the system is running
+
+---
+class: middle
+## Users
+### ENTRY
+
+  * fast, responsive, nice looking, easy to use (hopefully) and intuitive (hopefully)
+  * easy to expand, users' wishes can be implemented much more quickly
+
+  * New look, speed and functionality quickly consoled the transition-less users
+
+---
+class: middle
+## Users (2)
+### ENTRY
+####The bigger picture
+
+  * Other use cases
+    * insitutional repository
+    * standalone research data repository
+    * wholly integrated publication/research data/cris-like system
+    * simple bibliographic database (small projects)
+    * presentation layer for (meta)data of any kind
+    * standalone machine-readable hub
+    * private (backend only) (meta)data store
+
+---
+class: middle
+## Links
+
+- http://librecat.org - home page
+- https://librecatproject.wordpress.com - blog
+- https://github.com/LibreCat - code
+- librecat-dev@lists.uni-bielefeld.de - mailing list
+
+---
+class: middle
+
+# Thank you!
+
+    </textarea>
+    <div id="slideshow"></div>
+    <script type="text/javascript">
+        var slideshow = remark.create({
+            highlightLanguage: 'no-highlight',
+            highlightStyle: 'zenburn',
+        });
+    </script>
+  </body>
+</html>
