@@ -198,29 +198,30 @@ class: middle center
 
 ---
 class: middle
-## Technology Stack
-### EXIT
-  * MySQL, custom template engine, Perl modules
-  * ElasticSearch as Add-on (more wasn't possible)
-  * many add-ons, modules, extensions, changes (confusing architecture, slow technology)
+# Technology Stack
+## EXIT
+
+  * HUGE relational db schema
+  * custom template engine
+  * outdated Perl modules (no dependency management)
+  * many add-ons, modules, extensions, changes
   * Software constructed for one specific use-case
-  * complicated and time-consuming to add new features and fix bugs
+  * complicated and time-consuming to add new features
   * un-sharable system
 
 ---
 class: middle
-## Technology Stack
-### TRANSITION
+# Technology Stack
+## TRANSITION
+
   * Decisions: which technology?
     * use stuff you know
   * still problems left to figure out
-    * balancing act: do it right OR do it quick?
-  * still, it took almost one year of development
+    * balancing act: do it right OR do it quickly
 
 ---
 class: middle
-## Technology Stack
-### ENTER
+# Technology Stack
 
   * Catmandu-based system:
     * modular structure
@@ -259,7 +260,6 @@ class: middle
   * confusing data due to legacy database(structure)
   * lots of garbage had accumulated in the db (because last time we did it quick, NOT right)
   * superfluous fields (see above: legacy db) and relations
-  *
 
 ---
 class: middle
@@ -269,7 +269,7 @@ class: middle
   * Transforming Data with the help of Catmandu
     * technically easy, contentwise very complicated
     * __create__, __rename__, __restructure__, __delete__ fields
-    * clean up data within
+    * clean up data within fields
   * Different structure of file store
     * find safe way to migrate files
   * Surprise:
@@ -285,7 +285,6 @@ Transforming data feels a bit like building this...
 ---
 class: middle
 # Data
-### ENTRY
 
   * MySQL primary store - storing only json blobs
     * Bags (tables) for each type of record
@@ -311,19 +310,19 @@ class: middle
 
 ---
 class: middle
-# USER
-## Inconsistency I
+# USER INTERFACE
+## Inconsistency
 .center[![pub_old](./img/pub_old.png)]
 
 ---
 class: middle
-# USER
-## Inconsistency II
+# USER INTERFACE
+## Inconsistency
 .center[![PUB publication list](./img/pub_list.png)]
 
 ---
 class: middle
-# USER
+# USER INTERFACE
 ## GitHub
 .center[![GitHub](./img/github.png)]
 
@@ -343,7 +342,7 @@ class: middle
 ## (Web)Interface
 ### TRANSITION
 
-  * How (on earth) do you design an "intuitive" webform/webinterface???
+  * How (on earth) do you design an "intuitive" user interface?
 
   * Template Toolkit and Twitter Bootstrap make your life easier (but not too easy)
   * creating oai and sru was quite easy thanks to Catmandu modules
@@ -351,7 +350,7 @@ class: middle
 
 ---
 class: middle
-## (Web)Interface
+## USER INTERFACE
 ### ENTRY
 
   * configurable system
@@ -361,8 +360,8 @@ class: middle
 
 ---
 class: middle
-## Users
-### EXIT
+# USER INTERFACE
+## EXIT
 
   * Slow and ugly system
   * complicated usage
@@ -374,10 +373,10 @@ class: middle
 ## Users
 ### TRANSITION
 
-  * __None!__ We just switched and confronted the users with the new system.
+* __None!__ We just switched and confronted the users with the new system.
 
-  * Tried to take all data with us, especially user-specific data
-  * No problem to add missing data later, even while the system is running
+* Protip: Put a beta badge somewhere
+.center[![Beta logo](./img/beta_logo.png)]
 
 ---
 class: middle
@@ -402,7 +401,7 @@ class: middle
     * simple bibliographic database (small projects)
     * presentation layer for (meta)data of any kind
     * standalone machine-readable hub
-    * private (backend only) (meta)data store
+    * private (meta)data store
 
 ---
 class: middle center
