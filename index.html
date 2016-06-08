@@ -223,9 +223,7 @@ class: middle
   * Decisions: which technology?
     * use stuff you know
 
-  * still problems left to figure out
-
-    * balancing act: do it right OR do it quickly
+  * still can be a balancing act
 
 ---
 class: middle
@@ -270,8 +268,10 @@ class: middle
 ### EXIT
 
   * confusing data due to legacy database(structure)
-  * lots of garbage had accumulated in the db (because last time we did it quick, NOT right)
-  * superfluous fields (see above: legacy db) and relations
+
+  * lots of garbage had accumulated in the db
+
+  * superfluous fields and relations
 
 ---
 class: middle
@@ -282,10 +282,11 @@ class: middle
     * technically easy, contentwise very complicated
     * __create__, __rename__, __restructure__, __delete__ fields
     * clean up data within fields
+
   * Different structure of file store
     * find safe way to migrate files
-  * Surprise:
-    * To this day we keep finding data in fields that we didn't even know existed in the old db...
+
+  * Surprises can still be found
 
 ---
 class: middle
@@ -301,12 +302,12 @@ class: middle
   * MySQL primary store - storing only json blobs
     * Bags (tables) for each type of record
     * simple structure, easy to maintain
+
   * ElasticSearch search store
     * same structure as primary store, but analyzed
-    * now for all data (public and login area), quick access
-  * Files in the Linux file system
+    * use lookups during index process
 
-  * Easy access to all data with the help of Catmandu (command line tools and Perl functions)
+  * Easy access to all data with the help of Catmandu
 
 ---
 class: middle center
@@ -344,7 +345,9 @@ class: middle
 ### EXIT
 
   * old design
+
   * not responsive
+
   * complicated handling, maintenance, bug fixing
 
 BUT: it was a system users were used to!
@@ -367,32 +370,31 @@ class: middle
 ### ENTRY
 
   * fast, responsive, nice looking, easy to use (hopefully) and intuitive (hopefully)
+
   * easy to expand, users' wishes can be implemented much more quickly
 
   * New look, speed and functionality quickly consoled the transition-less users
 
 ---
 class: middle
-## Users (2)
-### ENTRY
-####The bigger picture
+# WHAT&apos;S NEXT?
+### The bigger picture
 
-  * Other use cases
-    * insitutional repository
-    * standalone research data repository
-    * wholly integrated publication/research data/cris-like system
-    * simple bibliographic database (small projects)
-    * presentation layer for (meta)data of any kind
-    * standalone machine-readable hub
-    * private (meta)data store
+* insitutional repository
+* standalone research data repository
+* wholly integrated publication/research data/cris-like system
+* simple bibliographic database (small projects)
+* presentation layer for (meta)data of any kind
+* standalone machine-readable hub
+* private (meta)data store
 
 ---
 class: middle center
-# WHAT's NEXT?
+# WHAT&apos;S NEXT?
 
 ---
 class: middle
-# WHAT'S NEXT?
+# WHAT&apos;S NEXT?
 
 ## Abondan OAI?
 
