@@ -158,9 +158,13 @@ class: middle
 # Agenda
 
   * INSTITUTIONAL REPOSITORY
+
   * TECHNOLOGY STACK
+
   * DATA
+
   * USER (INTERFACE)
+
   * WHAT'S NEXT?
 
 ---
@@ -199,39 +203,47 @@ class: middle center
 ---
 class: middle
 # Technology Stack
-## EXIT
+### EXIT
 
   * HUGE relational db schema
+
   * custom template engine
-  * outdated Perl modules (no dependency management)
-  * many add-ons, modules, extensions, changes
-  * Software constructed for one specific use-case
+
+  * outdated Perl modules (no dependency management!)
+
   * complicated and time-consuming to add new features
+
   * un-sharable system
 
 ---
 class: middle
 # Technology Stack
-## TRANSITION
+### TRANSITION
 
   * Decisions: which technology?
     * use stuff you know
+
   * still problems left to figure out
+
     * balancing act: do it right OR do it quickly
 
 ---
 class: middle
 # Technology Stack
+### ENTRY
 
-  * Catmandu-based system:
-    * modular structure
-    * configurable and extensible
-    * re-usable
-  * Catmandu layer with the same commands/functions, backend systems are exchangeable
   * open source
 
-  * we use: MySQL (primary store), ElasticSearch (index store), Perl Dancer (frontend), Template Toolkit and Twitter Bootstrap (views),
-  * and for all data, going in or out: Catmandu!
+  * modern Perl Dancer web framework
+
+  * Metadata store: MySQL, Index store: ElasticSearch
+
+  * and for all data, going in or out:
+  ```
+  use Catmandu;
+  ```
+
+  * provides different FileStore backends: Simple, Bagit, FedoraCommons
 
 ---
 class: middle
@@ -255,7 +267,7 @@ class:middle
 ---
 class: middle
 # Data
-## EXIT
+### EXIT
 
   * confusing data due to legacy database(structure)
   * lots of garbage had accumulated in the db (because last time we did it quick, NOT right)
@@ -264,7 +276,7 @@ class: middle
 ---
 class: middle
 # Data
-## TRANSITION
+### TRANSITION
 
   * Transforming Data with the help of Catmandu
     * technically easy, contentwise very complicated
@@ -328,59 +340,30 @@ class: middle
 
 ---
 class: middle
-## (Web)Interface
+# USER INTERFACE
 ### EXIT
 
-  * old design (web framework)
+  * old design
   * not responsive
-  * quite ugly
-<!--  * custom template engine -->
   * complicated handling, maintenance, bug fixing
 
----
-class: middle
-## (Web)Interface
-### TRANSITION
-
-  * How (on earth) do you design an "intuitive" user interface?
-
-  * Template Toolkit and Twitter Bootstrap make your life easier (but not too easy)
-  * creating oai and sru was quite easy thanks to Catmandu modules
-  * problem: compatibility with old interfaces (that we thought were no longer in use)
-
----
-class: middle
-## USER INTERFACE
-### ENTRY
-
-  * configurable system
-    * views, roles, rights, interfaces (oai, sru), language (almost)
-  * responsive design
-  * html5 with many helpers
+BUT: it was a system users were used to!
 
 ---
 class: middle
 # USER INTERFACE
-## EXIT
-
-  * Slow and ugly system
-  * complicated usage
-
-  * BUT: it was a system they were used to!
-
----
-class: middle
-## Users
 ### TRANSITION
 
-* __None!__ We just switched and confronted the users with the new system.
+  * How (on earth) do you design an "intuitive" user interface?
 
-* Protip: Put a beta badge somewhere
-.center[![Beta logo](./img/beta_logo.png)]
+  * __None!__ We just switched and confronted the users with the new system.
+
+  * Protip: Put a beta badge somewhere
+  .center[![Beta logo](./img/beta_logo.png)]
 
 ---
 class: middle
-## Users
+# USER INTERFACE
 ### ENTRY
 
   * fast, responsive, nice looking, easy to use (hopefully) and intuitive (hopefully)
